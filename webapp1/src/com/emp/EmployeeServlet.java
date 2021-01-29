@@ -20,7 +20,7 @@ public class EmployeeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String action =request.getParameter("action");   // values can be Save or Get
-		
+		if(action==null) action="";
 		String result=null;
 		switch(action) {
 		case "Save":
@@ -33,6 +33,8 @@ public class EmployeeServlet extends HttpServlet {
 			   
 	    default:
 		
+	    	request.setAttribute("message", "direct access to servlet is not allowed");
+	    	result="response";
 		}
 		
 		RequestDispatcher rd= request.getRequestDispatcher(result+".jsp");

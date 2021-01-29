@@ -27,7 +27,7 @@ public class EmployeeController {
 			pst.setString(2, nm);
 			pst.setFloat(3,sal);
 			
-			pst.executeUpdate();
+			int count=pst.executeUpdate();
 				
 			request.setAttribute("message", "Data successfully saved");
 			return "response";
